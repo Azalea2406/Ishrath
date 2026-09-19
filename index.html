@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ishrath Tabassum — Portfolio (Assignment)</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F3EA; --bg-dim:#ECE6D3; --ink:#232320; --ink-soft:#5A5A54;
+    --sage:#8AA57F; --sage-dark:#3D5236; --sage-tint:#E7EEE3;
+    --lav:#C9BEDE; --lav-dark:#3C3489; --card:#FFFFFF; --line: rgba(35,35,32,0.13);
+    --ai-bg:#DCE7F5; --ai-text:#0C447C; --dev-bg:#F5E4D0; --dev-text:#854F0B; --co-bg:#F0DDE6; --co-text:#72243E;
+    --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif; --font-mono:'IBM Plex Mono',monospace;
+  }
+  [data-theme="dark"]{
+    --bg:#1C1B17; --bg-dim:#242320; --ink:#F1EEE4; --ink-soft:#B8B5AA;
+    --card:#26251F; --line: rgba(241,238,228,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{ background:var(--bg); color:var(--ink); font-family:var(--font-body); line-height:1.6; transition:background .3s ease, color .3s ease; }
+  a{color:inherit;}
+  .navbar{ background:var(--ink) !important; }
+  .navbar-brand, .nav-link{ color:var(--bg) !important; font-family:var(--font-mono); font-size:13px; }
+  main{ max-width:960px; margin:0 auto; padding:0 6vw; }
+  section{ padding:56px 0; border-bottom:1px solid var(--line); }
+  .eyebrow{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em; color:var(--sage-dark); text-transform:uppercase; margin-bottom:12px; }
+  h1, h2, h3{ font-family:var(--font-display); font-weight:600; text-shadow:none; }
+  .eyebrow{ text-shadow:none; }
+  .lift-card{ background:var(--card); border:1px solid var(--line) !important; border-radius:12px; transition:transform .2s ease, box-shadow .2s ease; }
+  .lift-card:hover{ transform:translateY(-5px); box-shadow:0 14px 28px rgba(0,0,0,0.10); }
+  .status-tag{ font-family:var(--font-mono); font-size:11px; }
+  .status-tag.active{ background:var(--lav); color:var(--lav-dark); }
+  .status-tag.wrapped{ background:var(--sage-tint); color:var(--sage-dark); }
+  .key{ border-radius:10px; padding:12px 14px; font-size:14px; font-weight:500; margin-bottom:8px; }
+  .skill-col.ai .key{ background:var(--ai-bg); color:var(--ai-text); }
+  .skill-col.dev .key{ background:var(--dev-bg); color:var(--dev-text); }
+  .skill-col.co .key{ background:var(--co-bg); color:var(--co-text); }
+  .filter-btn{ font-family:var(--font-mono); font-size:12px; }
+  .filter-btn.active{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .proj-hidden{ display:none !important; }
+  table.edu-table{ background:var(--card); }
+  table.edu-table th{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); }
+  #contact{ background:var(--ink); color:var(--bg); margin:0 -6vw; padding:64px 6vw; border-bottom:none; }
+  [data-theme="dark"] #contact{ background:#0F0E0C; }
+  #contact .form-control{ background:var(--card); color:var(--ink); border-color:var(--line); }
+  #themeToggle{ font-family:var(--font-mono); font-size:12px; }
+  footer.site-footer{ font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); text-align:center; padding:24px 0; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="#hero">Ishrath Tabassum</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#roles">Roles</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="btn btn-outline-light btn-sm ms-3">Dark mode</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <section id="hero" class="pt-5">
+    <img src="banner.svg" alt="Ishrath Tabassum monogram banner" class="img-fluid rounded mb-4 w-100">
+    <div class="eyebrow">Hyderabad, India</div>
+    <h1 class="display-5 mb-3"><em>"Part strategist, part builder. I make sure things happen — and happen well."</em></h1>
+    <p class="mb-4" style="color:var(--ink-soft); max-width:56ch;">CS Engineering student, final year, running a second track in Management &amp; Data Science. Open to freelance and remote work.</p>
+    <a class="btn btn-dark me-2" href="#contact">Get in touch</a>
+    <a class="btn btn-outline-dark" href="Ishrath_Tabassum_Resume.pdf" download>Download resume</a>
+  </section>
+
+  <section id="about">
+    <div class="eyebrow">01</div>
+    <h2 class="mb-4">About</h2>
+    <div class="lift-card card p-4">
+      <div class="card-body">
+        <p>I don't really separate the technical work from the organizing — same instinct, different mediums. A messy codebase and a messy event bother me for the same reason: something isn't running the way it should. That's had me building an <strong>AI-powered document analyzer</strong> one semester and running a <strong>200-person conference</strong> the next.</p>
+        <p class="mb-0">I'm in my final year now, working across <strong>AI engineering</strong> and <strong>compliance-focused security research</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="eyebrow">02</div>
+    <h2 class="mb-4">Education</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered edu-table align-middle">
+        <thead>
+          <tr><th>Program</th><th>Institution</th><th>Duration</th><th>CGPA</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>B.E. Computer Science Engineering</td>
+            <td>Stanley College of Engineering &amp; Technology for Women</td>
+            <td>2023–2027</td>
+            <td>9.40 / 10</td>
+          </tr>
+          <tr>
+            <td>B.S. Management &amp; Data Science</td>
+            <td>IIT Madras</td>
+            <td>Ongoing</td>
+            <td>8.00 / 10</td>
+          </tr>
+          <tr>
+            <td>Inbound Credit Mobility Program</td>
+            <td>Universiti Malaysia Kelantan</td>
+            <td>2026</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="roles">
+    <div class="eyebrow">03</div>
+    <h2 class="mb-4">Roles</h2>
+    <div class="lift-card card p-4 mb-3 d-flex flex-row justify-content-between align-items-start flex-wrap gap-2">
+      <div><h3 class="h6 mb-1">Front-End AI Engineering Intern</h3><div class="small text-secondary">FlyRank AI · Jun 2026–Present</div></div>
+      <span class="badge rounded-pill status-tag active">Active</span>
+    </div>
+    <div class="lift-card card p-4 mb-3 d-flex flex-row justify-content-between align-items-start flex-wrap gap-2">
+      <div><h3 class="h6 mb-1">Web Developer</h3><div class="small text-secondary">Iris HR Solutions</div></div>
+      <span class="badge rounded-pill status-tag active">Ongoing</span>
+    </div>
+    <div class="lift-card card p-4 mb-3 d-flex flex-row justify-content-between align-items-start flex-wrap gap-2">
+      <div><h3 class="h6 mb-1">Cybersecurity Compliance Intern</h3><div class="small text-secondary">CYFY.AI · Apr–Jun 2026</div></div>
+      <span class="badge rounded-pill status-tag wrapped">Wrapped</span>
+    </div>
+    <div class="lift-card card p-4 mb-3 d-flex flex-row justify-content-between align-items-start flex-wrap gap-2">
+      <div><h3 class="h6 mb-1">Founder &amp; Editor</h3><div class="small text-secondary">Stanlians Gazette</div></div>
+      <span class="badge rounded-pill status-tag active">Ongoing</span>
+    </div>
+    <div class="lift-card card p-4 mb-3 d-flex flex-row justify-content-between align-items-start flex-wrap gap-2">
+      <div><h3 class="h6 mb-1">Chair</h3><div class="small text-secondary">ACM-W SCETW · 2025–2026</div></div>
+      <span class="badge rounded-pill status-tag wrapped">Wrapped</span>
+    </div>
+    <div class="lift-card card p-4 mb-3 d-flex flex-row justify-content-between align-items-start flex-wrap gap-2">
+      <div><h3 class="h6 mb-1">Executive &amp; Outreach Member</h3><div class="small text-secondary">The Inklings · 2026–Present</div></div>
+      <span class="badge rounded-pill status-tag active">Active</span>
+    </div>
+    <div class="lift-card card p-4 d-flex flex-row justify-content-between align-items-start flex-wrap gap-2">
+      <div><h3 class="h6 mb-1">AI Data Analyst Intern</h3><div class="small text-secondary">Excelerate · May–Jun 2025</div></div>
+      <span class="badge rounded-pill status-tag wrapped">Wrapped</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="eyebrow">04</div>
+    <h2 class="mb-3">Projects</h2>
+    <div class="mb-4 d-flex gap-2 flex-wrap" id="filterBar">
+      <button class="btn btn-outline-dark btn-sm filter-btn active" data-filter="all">All</button>
+      <button class="btn btn-outline-dark btn-sm filter-btn" data-filter="solo">Solo</button>
+      <button class="btn btn-outline-dark btn-sm filter-btn" data-filter="team">Team</button>
+    </div>
+    <div class="row g-3" id="projGrid">
+      <div class="col-md-4 proj-item" data-type="solo">
+        <div class="lift-card card p-4 h-100">
+          <h3 class="h6">DocuMind</h3>
+          <p class="small" style="color:var(--ink-soft);">AI-powered document analyzer — entity extraction, clause-level risk scoring, and summarization over a vector index.</p>
+          <span class="badge bg-light text-dark border">Solo</span>
+        </div>
+      </div>
+      <div class="col-md-4 proj-item" data-type="team">
+        <div class="lift-card card p-4 h-100">
+          <h3 class="h6">Smart Urban Traffic Management</h3>
+          <p class="small" style="color:var(--ink-soft);">Real-time vehicle tracking, ETA prediction, and route management with a live dashboard and heatmap.</p>
+          <span class="badge bg-light text-dark border">Team</span>
+          <a class="d-block small mt-2" href="https://github.com/Azalea2406/AI-Powered-Smart-Urban-Mobility-Traffic-Management-System" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="col-md-4 proj-item" data-type="team">
+        <div class="lift-card card p-4 h-100">
+          <h3 class="h6">GamifiED</h3>
+          <p class="small" style="color:var(--ink-soft);">Gamified learning platform — personalized content and progress tracking. 2nd Runner-Up, IBM InnovateX Hackathon 2025.</p>
+          <span class="badge bg-light text-dark border">Team</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow">05</div>
+    <h2 class="mb-4">Skills</h2>
+    <div class="row g-4">
+      <div class="col-md-4 skill-col ai">
+        <div class="fw-semibold small text-uppercase mb-2" style="color:var(--ink-soft);">AI &amp; Data</div>
+        <div class="key">RAG &amp; LLMs</div>
+        <div class="key">CNNs, Random Forests</div>
+        <div class="key">Pandas, NumPy, Scikit-learn</div>
+      </div>
+      <div class="col-md-4 skill-col dev">
+        <div class="fw-semibold small text-uppercase mb-2" style="color:var(--ink-soft);">Development</div>
+        <div class="key">Python, Java, SQL, JS</div>
+        <div class="key">Flask, Streamlit</div>
+        <div class="key">MySQL, Firebase, Git</div>
+      </div>
+      <div class="col-md-4 skill-col co">
+        <div class="fw-semibold small text-uppercase mb-2" style="color:var(--ink-soft);">Coordination</div>
+        <div class="key">Stakeholder coordination</div>
+        <div class="key">Event planning</div>
+        <div class="key">Documentation &amp; reporting</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="eyebrow" style="color:var(--lav);">Get in touch</div>
+    <h2 class="mb-4">Open to freelance work, remote roles, and things worth learning from.</h2>
+
+    <div class="d-flex gap-4 flex-wrap mb-4">
+      <a href="mailto:tabassumishrath2006@gmail.com" class="small">tabassumishrath2006@gmail.com</a>
+      <a href="https://linkedin.com/in/ishrath-tabassum" target="_blank" rel="noopener" class="small">LinkedIn</a>
+      <a href="https://github.com/Azalea2406" target="_blank" rel="noopener" class="small">GitHub — Azalea2406</a>
+    </div>
+    <a class="btn mb-5" style="background:var(--bg); color:var(--ink);" href="Ishrath_Tabassum_Resume.pdf" download>Download resume ↓</a>
+
+    <h3 class="h6 mb-3" style="color:var(--lav);">Or send a message directly</h3>
+    <form id="contactForm" novalidate class="row g-3" style="max-width:520px;">
+      <div class="col-12">
+        <label for="cName" class="form-label small">Name</label>
+        <input type="text" class="form-control" id="cName" required>
+        <div class="invalid-feedback">Enter your name.</div>
+      </div>
+      <div class="col-12">
+        <label for="cEmail" class="form-label small">Email</label>
+        <input type="email" class="form-control" id="cEmail" required>
+        <div class="invalid-feedback">Enter a valid email address.</div>
+      </div>
+      <div class="col-12">
+        <label for="cMessage" class="form-label small">Message</label>
+        <textarea class="form-control" id="cMessage" rows="4" required minlength="10"></textarea>
+        <div class="invalid-feedback">Message should be at least 10 characters.</div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn" style="background:var(--bg); color:var(--ink);">Send message</button>
+      </div>
+      <div class="col-12">
+        <div id="formAlert" class="alert d-none" role="alert"></div>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">UPDATED AUGUST 2026</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Feature 1: theme toggle (light/dark), persists during session via DOM attribute
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById('themeToggle');
+  toggleBtn.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    toggleBtn.textContent = isDark ? 'Dark mode' : 'Light mode';
+  });
+
+  // Feature 2: project filter
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projItems = document.querySelectorAll('.proj-item');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      projItems.forEach(item => {
+        const type = item.dataset.type;
+        item.classList.toggle('proj-hidden', filter !== 'all' && type !== filter);
+      });
+    });
+  });
+
+  // Client-side form validation with dynamic success/error messages
+  const form = document.getElementById('contactForm');
+  const alertBox = document.getElementById('formAlert');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if(!form.checkValidity()){
+      form.classList.add('was-validated');
+      alertBox.className = 'alert alert-danger';
+      alertBox.textContent = 'Please fix the highlighted fields before sending.';
+      alertBox.classList.remove('d-none');
+      return;
+    }
+    form.classList.add('was-validated');
+    alertBox.className = 'alert alert-success';
+    alertBox.textContent = 'Message validated — thanks for reaching out! (Demo form: no backend is connected, so nothing was actually sent.)';
+    alertBox.classList.remove('d-none');
+    form.reset();
+    form.classList.remove('was-validated');
+  });
+</script>
+
+</body>
+</html>
